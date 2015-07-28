@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('products', ['as' => 'products.index', function () {
+        return App\Product::all();
+    }]);
+
+    Route::get('descriptions', ['as' => 'descriptions.index', function () {
+        return App\Description::all();
+    }]);
+});
