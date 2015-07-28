@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Product;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,9 +14,10 @@ class ProductController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return Product::withKeyword($request->input('keyword'))
+            ->paginate(15);
     }
 
     /**
@@ -26,17 +27,6 @@ class ProductController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
     {
         //
     }

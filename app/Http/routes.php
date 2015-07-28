@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
-    Route::resource('products', 'ProductController', ['only' => ['index', 'store', 'show', 'update']]);
-    Route::resource('products.descriptions', 'ProductDescriptionController', ['only' => ['index', 'store', 'show', 'update']]);
+    Route::resource('products', 'ProductController', ['only' => ['index', 'store', 'update']]);
+    Route::resource('products.descriptions', 'ProductDescriptionController', ['only' => ['index', 'store']]);
 });
