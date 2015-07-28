@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Description;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -13,11 +13,14 @@ class ProductDescriptionController extends Controller
      * Display a listing of the resource.
      *
      * @param  int  $productId
+     * @param  Request  $request
      * @return Response
      */
-    public function index($productId)
+    public function index($productId, Request $request)
     {
-        //
+        return Description::ofProduct($productId)
+            ->withKeyword($request->input('keyword'))
+            ->paginate(15);
     }
 
     /**
@@ -28,17 +31,6 @@ class ProductDescriptionController extends Controller
      * @return Response
      */
     public function store($productId, Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $descriptionId
-     * @return Response
-     */
-    public function show($descriptionId)
     {
         //
     }

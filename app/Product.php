@@ -13,4 +13,12 @@ class Product extends Model
     {
         return $this->hasMany(Description::class);
     }
+
+    /**
+     * Get the product records that match the given keyword.
+     */
+    public function scopeWithKeyword($query, $keyword)
+    {
+        return $query->where('name', 'like', '%'.$keyword.'%');
+    }
 }
