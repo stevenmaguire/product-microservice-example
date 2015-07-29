@@ -13,7 +13,7 @@
 
 $factory->define(App\Product::class, function ($faker) {
     return [
-        'name' => $faker->word,
+        'name' => $faker->unique()->word,
     ];
 });
 

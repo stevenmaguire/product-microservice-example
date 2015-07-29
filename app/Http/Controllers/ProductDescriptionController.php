@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 use App\Description;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -32,18 +33,14 @@ class ProductDescriptionController extends Controller
      */
     public function store($productId, Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'body' => ['required'],
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $descriptionId
-     * @return Response
-     */
-    public function update(Request $request, $descriptionId)
-    {
-        //
+        $product = Product::findOrFail($productId);
+
+        return $product->descriptions()->save(new Description([
+            'body' => $request->input('body'),
+        ]));
     }
 }

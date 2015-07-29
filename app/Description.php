@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Description extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['body'];
+
+    /**
      * Get the product record associated with the description.
      */
     public function product()

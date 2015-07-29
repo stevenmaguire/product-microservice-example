@@ -74,6 +74,7 @@ return [
     'timezone'             => 'The :attribute must be a valid zone.',
     'unique'               => 'The :attribute has already been taken.',
     'url'                  => 'The :attribute format is invalid.',
+    'product_quality'      => 'This product name does not fit very well in the product ecosystem we\'ve artfully crafted.',
 
     /*
     |--------------------------------------------------------------------------
